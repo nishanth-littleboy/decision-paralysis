@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quick Local Plans ✨</title>
+
+  <!-- 🔐 LOGIN PROTECTION -->
+  <script>
+    if (localStorage.getItem("loggedIn") !== "true") {
+      window.location.href = "login.html";
+    }
+  </script>
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <!-- Your Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="app-header">
+  <span id="userEmail"></span>
+  <button onclick="logout()">Logout</button>
+</div>
+  <div class="container">
+    <h2>Find Something to Do</h2>
+    <!-- Mood Selection -->
+<div class="mood-buttons">
+  <button onclick="selectMood('cafe')">☕ Cafe</button>
+  <button onclick="selectMood('restaurant')">🍽 Restaurant</button>
+  <button onclick="selectMood('temple')">🛕 Temple</button>
+</div>
+    <div class="controls">
+      <input type="number" id="budget" placeholder="Budget (₹)" />
+      <input type="number" id="time" placeholder="Time (minutes)" />
+      <button onclick="findPlan()">Find Plan</button>
+    </div>
+
+    <div id="result"></div>
+    <div id="map"></div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Activities & Logic -->
+  <script src="activities.js"></script>
+  <script src="script.js"></script>
+
+  <!-- Logout Logic -->
+  <script>
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      window.location.href = "login.html";
+    }
+
+    // Display user email on page load
+    window.onload = () => {
+      const userEmail = localStorage.getItem("userEmail");
+      if (userEmail) {
+        document.getElementById("userEmail").textContent = userEmail;
+      }
+    };
+  </script>
+</body>
+</html>

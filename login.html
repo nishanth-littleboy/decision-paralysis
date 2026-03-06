@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login | Smart Planner</title>
+  <link rel="stylesheet" href="login.css" />
+  
+</head>
+
+<body>
+  <div class="login-wrapper">
+    <div class="login-card">
+      <p id="errorMsg" class="error"></p>
+      
+      <h2 class="fade-item">Smart Planner</h2>
+      <p class="subtitle fade-item">Plan your time wisely</p>
+
+      <div class="field fade-item">
+        <input type="email" id="email" placeholder="Email address" />
+      </div>
+
+      <div class="field fade-item">
+        <input type="password" id="password" placeholder="Password" />
+      </div>
+
+      <label class="remember fade-item">
+        <input type="checkbox" id="rememberMe" /> Remember me
+      </label>
+
+      <button class="fade-item" onclick="login()">Login</button>
+
+      <p class="note fade-item">
+        Don’t have an account?
+        <a href="signup.html">Signup</a>
+      </p>
+
+    </div>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

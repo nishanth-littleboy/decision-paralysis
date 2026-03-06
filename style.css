@@ -1,0 +1,345 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* =========================
+   MOOD BUTTONS
+========================= */
+.mood-buttons {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.mood-buttons button {
+  padding: 16px 30px;   
+  font-size: 15px;         
+  border-radius: 20px;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 140px;      
+  transition: transform 0.2s;
+}
+
+.mood-buttons button:hover {
+  transform: scale(1.05);  
+}
+
+.mood-buttons button.active {
+  background: #22c55e;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f4f6f8;
+  color: #333;
+}
+
+/* =========================
+   PAGE CONTAINER
+========================= */
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   HEADER
+========================= */
+h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 28px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* =========================
+   INPUT SECTION
+========================= */
+.controls {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.controls input {
+  flex: 1;
+  min-width: 140px;
+  padding: 12px 14px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.controls input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.controls button {
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.controls button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(37, 99, 235, 0.35);
+}
+
+/* =========================
+   RESULT / PLAN CARD
+========================= */
+#result {
+  margin-bottom: 20px;
+}
+
+.plan-card {
+  padding: 16px;
+  border-radius: 10px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.plan-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color:#2563eb;
+}
+
+.plan-summary {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #374151;
+}
+
+.plan-item {
+  padding: 10px 12px;
+  margin-top: 8px;
+  border-radius: 8px;
+  background: #ffffff;
+  border-left: 4px solid #2563eb;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.plan-item span {
+  display: block;
+  font-size: 14px;
+}
+
+/* =========================
+   MAP
+========================= */
+#map {
+  height: 420px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 24px;
+  }
+
+  .controls {
+    flex-direction: column;
+  }
+
+  .plan-summary {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  #map {
+    height: 320px;
+  }
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #6a5cff;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.app-header button {
+  background: white;
+  color: #6a5cff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+}
+#profileSection {
+  display: block;
+}
+#homeSection {
+  display: none;
+}
+
+/* =========================
+   THEME VARIABLES (Dark Mode)
+========================= */
+:root {
+  --bg-color: #0f172a;
+  --container-bg: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-color: #3b82f6;
+  --input-bg: #334155;
+  --border-color: #475569;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-color);
+  color: var(--text-primary);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+  background: var(--container-bg);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+  color: var(--text-primary);
+}
+
+/* =========================
+   INPUTS & BUTTONS
+========================= */
+.controls input {
+  flex: 1;
+  min-width: 140px;
+  padding: 12px 14px;
+  background: var(--input-bg);
+  color: white;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  outline: none;
+}
+
+.controls button {
+  position: relative;
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent-color);
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 120px;
+  transition: opacity 0.2s;
+}
+
+.controls button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* =========================
+   SPINNER ANIMATION
+========================= */
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 0.8s linear infinite;
+  margin-right: 8px;
+  display: none; /* Hidden by default */
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Show spinner when button is loading */
+button.loading .spinner {
+  display: inline-block;
+}
+
+/* =========================
+   PLAN CARDS (Dark Adjustments)
+========================= */
+.plan-card {
+  background: #334155;
+  border-color: var(--border-color);
+}
+.plan-item {
+  background: var(--input-bg);
+  color: white;
+  border-left: 4px solid var(--accent-color);
+}
+
+.plan-card {
+  background: #334155;
+  border: 1px solid var(--border-color);
+  border-left: 4px solid #3b82f6;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+}

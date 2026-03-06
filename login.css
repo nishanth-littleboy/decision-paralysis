@@ -1,0 +1,229 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background: radial-gradient(circle at 20% 30%, #0d0d2b, #000014 80%);
+}
+
+/* Floating star particles */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 2px) repeat;
+  background-size: 5px 5px;
+  animation: twinkle 5s infinite alternate;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.2); }
+  100% { opacity: 0.3; transform: scale(1); }
+}
+
+/* Shooting stars */
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(45deg, white, transparent);
+  top: -100px;
+  left: 50%;
+  transform: rotate(45deg);
+  animation: shoot linear infinite;
+  opacity: 0;
+  z-index: 1;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+  70% { opacity: 1; }
+  100% {
+    transform: translateX(-800px) translateY(600px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Nebula glow effect */
+body::after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  background: radial-gradient(circle at 30% 40%, rgba(138,43,226,0.2), transparent 70%);
+  animation: nebula 15s ease-in-out infinite alternate;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes nebula {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1) rotate(2deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* ===============================
+   LOGIN WRAPPER & CARD (UNCHANGED)
+=============================== */
+.login-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.login-card {
+  background: #ffffff;
+  width: 360px;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+/* ===============================
+   TEXT
+=============================== */
+.login-card h2 {
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+/* ===============================
+   INPUTS
+=============================== */
+.field {
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #6a5cff;
+}
+
+.password-box {
+  position: relative;
+}
+
+.toggle {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  cursor: pointer;
+}
+
+/* ===============================
+   BUTTON
+=============================== */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #6a5cff;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #5948e5;
+}
+
+/* ===============================
+   TEXT LINKS
+=============================== */
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.signup {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.signup a {
+  color: #6a5cff;
+  text-decoration: none;
+}
+
+.note {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #888;
+}
+
+/* ===============================
+   FADE IN ANIMATION
+=============================== */
+.fade-item {
+  opacity: 0;
+  animation: fadeUp 0.6s ease forwards;
+}
+
+.fade-item:nth-child(1) { animation-delay: 0.1s; }
+.fade-item:nth-child(2) { animation-delay: 0.2s; }
+.fade-item:nth-child(3) { animation-delay: 0.3s; }
+.fade-item:nth-child(4) { animation-delay: 0.4s; }
+.fade-item:nth-child(5) { animation-delay: 0.5s; }
+.fade-item:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   SHAKE ERROR
+=============================== */
+.login-card.shake {
+  animation: shake 0.4s;
+  border: 3px solid #ee0909;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+  100% { transform: translateX(0); }
+}
